@@ -1,0 +1,5 @@
+*.txt
+/node_modules
+/vendor
+/local/assets/local
+/assets.json

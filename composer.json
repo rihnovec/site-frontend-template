@@ -1,0 +1,17 @@
+{
+    "name": "rikhnovets/webpack.learn",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Rikhnovets",
+            "email": "rihnovec.dev@yandex.ru"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Rikhnovets\\": "App"
+        }
+    }
+}
