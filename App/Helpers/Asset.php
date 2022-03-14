@@ -20,14 +20,22 @@ class Asset {
     $this->assets = json_decode($assets, true);
   }
 
-  function includeCss() {
-    
+  function includeCss($name) {
+    echo '<link rel="stylesheet" href="' . $this->getAbsolutePath($name, 'css') . '">';
+  }
+
+  function inlineCss($name) {
+    echo '<style>' . file_get_contents($_SERVER['DOCUMENT_ROOT'] . $this->getAbsolutePath($name, 'css')) . '</style>';
   }
 
   function includeJs($name) {
-    $relativePath = $this->assets[$name]['js'];
+    echo '<script src="'. $this->getAbsolutePath($name, 'js') . '" defer></script>';
+  }
+
+  private function getAbsolutePath($bundleName, $fileType) {
+    $relativePath = $this->assets[$bundleName][$fileType];
     $absolutePath = $this->path . $relativePath;
 
-    echo '<script src="'. $absolutePath . '" defer></script>';
+    return $absolutePath;
   }
 }
